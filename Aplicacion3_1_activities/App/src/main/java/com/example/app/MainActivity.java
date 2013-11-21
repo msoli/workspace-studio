@@ -18,7 +18,7 @@ import android.os.Build;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,44 +33,6 @@ public class MainActivity extends ActionBarActivity {
         }
     }
 
-
-    public void lanzarAcercaDe(View view) {
-        Intent i = new Intent(this, AcercaDe.class);
-        startActivity(i);
-
-
-    }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        if (id == R.id.close_settings) {
-            this.finish();
-        }
-
-        if (id == R.id.acercade_settings) {
-            lanzarAcercaDe(null);
-        }
-
-
-        return super.onOptionsItemSelected(item);
-    }
 
     /**
      * A placeholder fragment containing a simple view.
@@ -102,11 +64,31 @@ public class MainActivity extends ActionBarActivity {
             i.putExtra("dato_procesado", text);
             Log.i("MSOLIS", text);
 
-
-            startActivity(i);
+            Log.i("MSOLIS","Se manda a second activity");
+            startActivityForResult(i, 123);
 
 
         }
+
+
+        @Override
+        public void onActivityResult(int requestCode, int resultCode, Intent data) {
+            super.onActivityResult(requestCode, resultCode, data);
+
+            if (requestCode == 123 && resultCode == RESULT_OK){
+
+
+                Log.i("MSOLIS","Se obtiene resulado de la  second activity");
+             TextView textView = (TextView) getActivity().findViewById(R.id.hello_result);
+
+             textView.setText(data.getStringExtra("restValue"));
+
+
+
+            }
+
+        }
+
 
 
 

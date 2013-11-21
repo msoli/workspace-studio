@@ -7,6 +7,10 @@
 
     <string name="msg_verify">Hola %1$s, se valido el dato correctamente</string>
 
+    <string name="title_second">Verificación</string>
+
+
+
 
 
 </resources>

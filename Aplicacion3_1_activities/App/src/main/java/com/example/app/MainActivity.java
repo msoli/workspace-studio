@@ -3,10 +3,12 @@ package com.example.app;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class MainActivity extends ActionBarActivity {
 
@@ -28,6 +31,14 @@ public class MainActivity extends ActionBarActivity {
                     .add(R.id.container, new PlaceholderFragment())
                     .commit();
         }
+    }
+
+
+    public void lanzarAcercaDe(View view) {
+        Intent i = new Intent(this, AcercaDe.class);
+        startActivity(i);
+
+
     }
 
 
@@ -48,6 +59,16 @@ public class MainActivity extends ActionBarActivity {
         if (id == R.id.action_settings) {
             return true;
         }
+
+        if (id == R.id.close_settings) {
+            this.finish();
+        }
+
+        if (id == R.id.acercade_settings) {
+            lanzarAcercaDe(null);
+        }
+
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -61,13 +82,34 @@ public class MainActivity extends ActionBarActivity {
 
 
         public void lanzarAcercaDe(View view) {
-
             Intent i = new Intent(getActivity(), AcercaDe.class);
+            startActivity(i);
+
+
+        }
+
+        public void lanzarVerify(View view) {
+
+            Intent i = new Intent(getActivity(), VerificarDatos.class);
+
+
+            TextView dato = (TextView) getActivity().findViewById(R.id.input_dato);
+
+            //para leer el strings.xml
+            Resources res = getResources();
+            String text = String.format(res.getString(R.string.msg_verify), dato.getText().toString());
+
+            i.putExtra("dato_procesado", text);
+            Log.i("MSOLIS", text);
+
 
             startActivity(i);
 
 
         }
+
+
+
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -75,13 +117,30 @@ public class MainActivity extends ActionBarActivity {
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
 
             Button butAcercade = (Button) rootView.findViewById(R.id.btn_acercade);
-
             butAcercade.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     lanzarAcercaDe(view);
                 }
             });
+
+
+            Button btnVerify = (Button) rootView.findViewById(R.id.btn_verify);
+
+            btnVerify.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    lanzarVerify(view);
+                }
+            });
+
+
+
+
+
+
+
+
 
             return rootView;
         }

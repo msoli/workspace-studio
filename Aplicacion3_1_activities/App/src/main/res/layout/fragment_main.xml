@@ -21,4 +21,19 @@
         android:id="@+id/btn_acercade"
         />
 
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Ingrese nombre"
+        android:singleLine="true"
+        android:id="@+id/input_dato" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Verificar"
+        android:id="@+id/btn_verify"/>
+
+
+
 </LinearLayout>

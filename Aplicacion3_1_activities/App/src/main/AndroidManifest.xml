@@ -25,9 +25,16 @@
         
         <activity android:name=".AcercaDe"
             android:label="Acerca de..."
-            android:theme="@android:style/Theme.Dialog">
+            android:theme="@android:style/Theme" />
 
-        </activity>
+
+        <activity android:name=".VerificarDatos"
+            android:label="Verificación">
+            </activity>
+
+
+
+
         
     </application>
 

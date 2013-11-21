@@ -7,4 +7,16 @@
         android:title="@string/action_settings"
         android:orderInCategory="100"
         app:showAsAction="never" />
+
+    <item android:id="@+id/close_settings"
+        android:title="Salir"
+        android:orderInCategory="150"
+        android:showAsAction="never" />
+
+    <item android:id="@+id/acercade_settings"
+        android:title="Acerca de"
+        android:orderInCategory="145"
+        android:showAsAction="ifRoom|collapseActionView"
+        />
+
 </menu>

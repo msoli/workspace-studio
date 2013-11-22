@@ -31,6 +31,8 @@ public class MainActivity extends BaseActivity {
                     .add(R.id.container, new PlaceholderFragment())
                     .commit();
         }
+
+
     }
 
 
@@ -66,6 +68,11 @@ public class MainActivity extends BaseActivity {
 
             Log.i("MSOLIS","Se manda a second activity");
             startActivityForResult(i, 123);
+            Log.i("MSOLIS",(view.isHardwareAccelerated())? "yes acelerated" : "No acelerated");
+            getActivity().overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+
+
+
 
 
         }

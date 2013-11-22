@@ -4,27 +4,33 @@
     tools:context=".BaseActivity" >
 
 
+    <item
+        android:id="@+id/overflow"
+        app:icon="@drawable/abc_ic_menu_moreoverflow_normal_holo_dark"
+        android:icon="@drawable/abc_ic_menu_moreoverflow_normal_holo_dark"
+        android:showAsAction="always"
+        app:showAsAction="always">
 
+        <menu>
 
-        <item android:id="@+id/action_settings"
-            android:title="Settings"
-            android:orderInCategory="100"
-            app:icon="@drawable/abc_ic_cab_done_holo_dark"
-            android:icon="@drawable/abc_ic_cab_done_holo_dark"
-            app:showAsAction="never"
-            android:showAsAction="never"
+            <item android:id="@+id/action_settings"
+                android:title="Settings"
+                android:orderInCategory="100"
+                android:icon="@android:drawable/ic_menu_preferences"
+                app:showAsAction="never"
 
-            />
+                />
 
-        <item android:id="@+id/acercade_settings"
-            android:title="Acerca de"
-            android:orderInCategory="160"
-            app:icon="@android:drawable/ic_menu_info_details"
-            android:icon="@android:drawable/ic_menu_info_details"
-            app:showAsAction="never"
-            android:showAsAction="never"
+            <item android:id="@+id/acercade_settings"
+                android:title="Acerca de"
+                android:orderInCategory="160"
+                android:icon="@android:drawable/ic_menu_info_details"
+                app:showAsAction="never"
 
-            />
+                />
 
+        </menu>
+
+    </item>
 
 </menu>

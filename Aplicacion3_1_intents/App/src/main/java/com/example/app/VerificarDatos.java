@@ -3,6 +3,7 @@ package com.example.app;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -20,6 +21,11 @@ public class VerificarDatos extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setHomeButtonEnabled(true);// para activar el boton home
+        actionBar.setDisplayHomeAsUpEnabled(true);//para mostrar la flecha
+
+
         setContentView(R.layout.second_activity);
 
         Bundle extras = getIntent().getExtras();
@@ -32,13 +38,16 @@ public class VerificarDatos extends BaseActivity {
 
         Intent intent = new Intent();
         intent.putExtra("restValue", s);
-        setResult(RESULT_OK, intent);
+        setResult(Activity.RESULT_OK, intent);
 
         Log.i("MSOLIS", "second activity proceso resultado (al regresar a primera activitu se mostrara el resultado)");
+
+
 
 
 
     }
 
 
+    
 }

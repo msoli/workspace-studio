@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Aplicacion3_1_activities</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="msg_verify">Hola %1$s, se valido el dato correctamente</string>
+
+    <string name="title_second">Verificación</string>
+
+
+
+
+
+</resources>

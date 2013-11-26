@@ -11,6 +11,23 @@
 
         />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Seccion 1"
+        android:id="@+id/resultado"
+
+        />
+
+
+
+    <Button
+        android:id="@+id/btn_goto3a1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="go to third activity"
+        />
+
 
 
 

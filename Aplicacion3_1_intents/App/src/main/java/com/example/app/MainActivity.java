@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
@@ -32,11 +33,22 @@ public class MainActivity extends BaseActivity {
                     .commit();
         }
 
+
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setHomeButtonEnabled(false);// para activar el boton home
+        actionBar.setHomeButtonEnabled(false);// para desactivar el boton home
+        actionBar.setDisplayHomeAsUpEnabled(false);
 
 
     }
+
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(0,0);
+    }
+
+
 
 
     /**
@@ -71,8 +83,6 @@ public class MainActivity extends BaseActivity {
 
             Log.i("MSOLIS","Se manda a second activity");
             startActivityForResult(i, 123);
-
-
 
             getActivity().overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
 
@@ -130,16 +140,13 @@ public class MainActivity extends BaseActivity {
 
 
 
-
-
-
-
-
-
             return rootView;
         }
 
 
     }
+
+
+
 
 }

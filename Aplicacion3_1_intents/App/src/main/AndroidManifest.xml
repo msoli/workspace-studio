@@ -12,7 +12,7 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/Theme.Mytheme" >
+        android:theme="@style/AppTheme" >
         <activity
             android:name="com.example.app.MainActivity"
             android:label="@string/app_name" >
@@ -28,21 +28,40 @@
             android:theme="@android:style/Theme" />
 
 
-        <activity android:name=".VerificarDatos"
+        <activity android:name="com.example.app.VerificarDatos"
             android:label="@string/title_second"
             android:icon="@drawable/ic_launcher"
-
-
-            android:parentActivityName="com.example.app.MainActivity"
-            >
+            android:parentActivityName=".VerificarDatos">
             <!--para darle la funcion al boton home de regresar a su activity padre-->
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.app.MainActivity" />
+        </activity>
+
+        <activity android:name="com.example.app.TercerNivel1Activity"
+            android:label="Tercer activity"
+            android:icon="@drawable/ic_launcher"
+            android:parentActivityName=".TercerNivel1Activity" >
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.app.VerificarDatos" />
+
+            </activity>
+
+        <activity android:name="com.example.app.TercerNivel2Activity"
+            android:label="Tercer activity"
+            android:icon="@drawable/ic_launcher"
+            android:parentActivityName=".TercerNivel2Activity" >
+
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.app.MainActivity" />
 
-
-
         </activity>
+
+
 
 
 

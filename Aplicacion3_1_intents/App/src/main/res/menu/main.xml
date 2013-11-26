@@ -4,20 +4,23 @@
     tools:context=".BaseActivity" >
 
 
+
+
     <item
         android:id="@+id/overflow"
         app:icon="@drawable/abc_ic_menu_moreoverflow_normal_holo_dark"
         android:icon="@drawable/abc_ic_menu_moreoverflow_normal_holo_dark"
-        android:showAsAction="always"
+        android:title="Menu"
         app:showAsAction="always">
 
         <menu>
+            <group android:id="@+id/group2" android:checkableBehavior="single">
 
             <item android:id="@+id/action_settings"
                 android:title="Settings"
                 android:orderInCategory="100"
                 android:icon="@android:drawable/ic_menu_preferences"
-                app:showAsAction="never"
+                app:showAsAction="always|withText"
 
                 />
 
@@ -25,12 +28,28 @@
                 android:title="Acerca de"
                 android:orderInCategory="160"
                 android:icon="@android:drawable/ic_menu_info_details"
-                app:showAsAction="never"
+                app:showAsAction="always|withText"
 
                 />
+            </group>
 
         </menu>
 
     </item>
 
+    <item android:id="@+id/acercade_settings"
+        android:title="Acerca de"
+        android:orderInCategory="160"
+        android:icon="@android:drawable/ic_menu_info_details"
+        app:showAsAction="never"
+
+        />
+
+    <item android:id="@+id/acercade_settings"
+        android:title="Acerca de"
+        android:orderInCategory="160"
+        android:icon="@android:drawable/ic_menu_info_details"
+        app:showAsAction="always|withText"
+
+        />
 </menu>

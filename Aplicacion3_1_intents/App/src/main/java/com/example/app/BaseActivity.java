@@ -7,9 +7,14 @@ import android.support.v4.app.NavUtils;
 import android.support.v4.app.TaskStackBuilder;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.PopupMenu;
 
 /**
  * Created by USUARIO on 21/11/13.
@@ -23,12 +28,22 @@ public class BaseActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setHomeButtonEnabled(true);// para activar el boton home
+        actionBar.setDisplayHomeAsUpEnabled(true);//para mostrar la flecha
+
+
+
 
     }
+
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
+        menu.setQwertyMode(true);
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
 
@@ -52,9 +67,8 @@ public class BaseActivity extends ActionBarActivity {
 
         //android.R.id.home para tomar el R.id del boton home del actionbar
         if (id == android.R.id.home){
-            backToHome2();
+            navigateUp2();
         }
-
 
         return super.onOptionsItemSelected(item);
     }
@@ -86,6 +100,8 @@ public class BaseActivity extends ActionBarActivity {
     public void navigateUp2(){
 
         Intent upIntent = NavUtils.getParentActivityIntent(this);
+
+        Log.i("MSOLIS", upIntent.toString());
         if (NavUtils.shouldUpRecreateTask(this, upIntent)) {
             // This activity is NOT part of this app's task, so create a new task
             // when navigating up, with a synthesized back stack.
@@ -100,6 +116,8 @@ public class BaseActivity extends ActionBarActivity {
             // navigate up to the logical parent activity.
             NavUtils.navigateUpTo(this, upIntent);
         }
+
+
 
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
     }
@@ -119,7 +137,7 @@ public class BaseActivity extends ActionBarActivity {
         homeIntent.addCategory(Intent.CATEGORY_HOME);
         homeIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(homeIntent);
-        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
+        //overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
 
     }
 

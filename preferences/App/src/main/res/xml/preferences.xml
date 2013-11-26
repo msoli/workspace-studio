@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <PreferenceCategory
+        android:title="First Category"
+        android:key="first_category">
+
+        <CheckBoxPreference
+            android:summary="Enable or disable updates"
+            android:title="Enable or disable"
+            android:key="perform_preferences"
+            android:defaultValue="true"
+            />
+
+        <ListPreference
+            android:key="update_interval"
+            android:title="Updates interval"
+            android:summary="Define how often updates will be performed"
+            android:defaultValue="1000"
+            android:entries="@array/updateInterval"
+            android:entryValues="@array/updateIntervalValues"
+            android:dependency="perform_updates"/>
+
+        </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="Second category"
+        android:key="second_category">
+
+        <EditTextPreference
+            android:key="welcome_message"
+            android:title="Welcome message"
+            android:summary="Define the Welcome message to be shown"
+            android:dialogTitle="Welcome message"
+            android:dialogMessage="Provide a message"
+            android:defaultValue="Defaul welcome message"/>
+
+        </PreferenceCategory>
+
+</PreferenceScreen>
